@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Justin Jacob Acedo — Portfolio</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== TOKENS ===== */
+    :root {
+      --cream: #F5F0E6;
+      --ink: #111111;
+      --coral: #FF6B4A;
+      --muted: #6B6B6B;
+      --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --serif: "Times New Roman", Times, serif;
+    }
+
+    /* ===== BASE ===== */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--serif);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== SHARED WRAPPER ===== */
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ===== SHARED SECTION LABEL ===== */
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+
+    .label-mark {
+      color: var(--coral);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    /* =====================================================
+       LOGO - GUITAR PICK + CODE BRACKETS
+    ===================================================== */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      position: relative;
+      width: 26px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--coral);
+      clip-path: polygon(
+        50% 0%,
+        78% 22%,
+        90% 62%,
+        68% 100%,
+        32% 100%,
+        10% 62%,
+        22% 22%
+      );
+    }
+
+    .logo-mark-text {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--cream);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      transform: translateY(1px);
+    }
+
+    .logo--inverse {
+      color: var(--cream);
+    }
+
+    .logo--inverse .logo-mark {
+      background: var(--cream);
+    }
+
+    .logo--inverse .logo-mark-text {
+      color: var(--coral);
+    }
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+    .header {
+      padding: 48px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding-bottom: 40px;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav a {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav a:hover {
+      border-bottom-color: var(--coral);
+      color: var(--coral);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hello {
+      font-family: var(--sans);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      color: var(--coral);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      font-family: var(--sans);
+      font-size: clamp(56px, 10vw, 128px);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .name span {
+      display: block;
+    }
+
+    .tagline {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      padding: 10px 16px;
+      margin-top: 32px;
+      transform: rotate(-1deg);
+    }
+
+    .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-icon {
+      color: var(--coral);
+      font-size: 14px;
+    }
+
+    /* ===== HERO VISUAL ===== */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--coral);
+      z-index: 0;
+    }
+
+    .circle::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      background: var(--cream);
+      z-index: 1;
+    }
+
+    .portrait {
+      position: relative;
+      z-index: 2;
+      width: 64%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border: 4px solid var(--ink);
+      background: var(--cream);
+    }
+
+    .asterisk {
+      position: absolute;
+      top: 4%;
+      right: 6%;
+      color: var(--coral);
+      font-size: 48px;
+      line-height: 1;
+      z-index: 4;
+      font-weight: 900;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: 8%;
+      right: -8%;
+      background: var(--ink);
+      color: var(--cream);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1.1;
+      padding: 14px 20px;
+      transform: rotate(-6deg);
+      z-index: 3;
+      box-shadow: 6px 6px 0 var(--coral);
+    }
+
+    .badge-sub {
+      display: block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 4px;
+    }
+
+    /* =====================================================
+       DIVIDER
+    ===================================================== */
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+
+    .divider-line {
+      height: 2px;
+      background: var(--ink);
+    }
+
+    /* =====================================================
+       ABOUT
+    ===================================================== */
+    .about {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about-heading {
+      font-family: var(--sans);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .about-heading em {
+      display: block;
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .about-body p {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .about-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-body b {
+      color: var(--ink);
+    }
+
+    /* =====================================================
+       SKILLS
+    ===================================================== */
+    .skills {
+      padding: 80px 0;
+    }
+
+    .skills-heading {
+      font-family: var(--sans);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+
+    .skills-heading em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+
+    .skill-col h3 {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .skill-col ul {
+      list-style: none;
+    }
+
+    .skill-col li {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.8;
+      color: #333333;
+      padding: 6px 0;
+    }
+
+    .skill-col li::before {
+      content: "\2014";
+      color: var(--coral);
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       PROJECTS
+    ===================================================== */
+    .projects {
+      padding: 80px 0;
+    }
+
+    .projects-heading {
+      font-family: var(--sans);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .projects-heading em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .projects-intro {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    .project-feature {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
+      align-items: start;
+      background: #FFFFFF;
+      padding: 48px;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-feature:hover {
+      transform: translate(-4px, -4px);
+      box-shadow: 10px 10px 0 var(--coral);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-num {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .meta-chip {
+      position: relative;
+      background: var(--cream);
+      border: 1.5px solid var(--ink);
+      padding: 14px 16px 14px 22px;
+      overflow: hidden;
+    }
+
+    .meta-chip::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: var(--coral);
+    }
+
+    .meta-chip-label {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .meta-chip-value {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-title {
+      font-family: var(--sans);
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .project-desc {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+      color: #333333;
+    }
+
+    .project-desc + .project-desc {
+      margin-top: -4px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid var(--coral);
+      padding-bottom: 3px;
+      align-self: flex-start;
+      margin-top: 8px;
+      transition: color 0.2s ease;
+    }
+
+    .project-link:hover {
+      color: var(--coral);
+    }
+
+    .project-note {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+
+    /* =====================================================
+       CONTACT
+    ===================================================== */
+    .contact {
+      padding: 80px 0;
+    }
+
+    .contact-heading {
+      font-family: var(--sans);
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .contact-heading em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .contact-intro {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
+
+    .form-shell {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 56px;
+      align-items: start;
+      background: #FFFFFF;
+      border: 1.5px solid var(--ink);
+      padding: 48px;
+      position: relative;
+    }
+
+    .form-corner-logo {
+      position: absolute;
+      top: 24px;
+      left: 32px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-corner-logo .logo-mark {
+      width: 26px;
+      height: 30px;
+      background: var(--coral);
+    }
+
+    .form-corner-logo .logo-mark-text {
+      color: var(--cream);
+    }
+
+    .form-side {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-top: 70px;
+    }
+
+    .form-side-label {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-side-text {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333333;
+      font-style: italic;
+    }
+
+    .form-side-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 8px;
+      border-top: 2px solid var(--ink);
+    }
+
+    .form-side-list li {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .form-side-list li::before {
+      content: "\2192";
+      color: var(--coral);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .form {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 24px;
+      padding-top: 70px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      position: relative;
+    }
+
+    .field-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .field label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .field-num {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--coral);
+    }
+
+    .field input,
+    .field textarea {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--ink);
+      padding: 10px 0;
+      outline: none;
+      transition: border-color 0.2s ease;
+      width: 100%;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #B0A99C;
+      font-style: italic;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-bottom-color: var(--coral);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .form button {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 18px 36px;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form button:hover {
+      background: var(--coral);
+      color: var(--ink);
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .form-note {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    .footer {
+      margin-top: 80px;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 56px 0 40px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #333333;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .footer-name {
+      font-family: var(--sans);
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-name em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .footer-tag {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-style: italic;
+      color: #B0A99C;
+      max-width: 320px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #B0A99C;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom-color: var(--coral);
+      color: var(--coral);
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .project-feature {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 36px;
+      }
+
+      .form-shell {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 36px;
+      }
+
+      .form-side,
+      .form {
+        padding-top: 50px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .badge {
+        right: 4%;
+      }
+
+      .topbar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .divider {
+        padding: 0 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header wrap" id="home">
+
+    <div class="topbar">
+      <div class="logo">
+        <span class="logo-mark">
+          <span class="logo-mark-text">{ }</span>
+        </span>
+        <span>Full-Stack Developer</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hello">Hello, I am</div>
+        <h1 class="name">
+          <span>Justin</span>
+          <span>Jacob</span>
+          <span>Acedo</span>
+        </h1>
+
+        <div class="tagline">
+          I build clean, functional digital experiences.
+        </div>
+
+        <div class="meta">
+          <span class="meta-icon">&#9670;</span>
+          <span>IT Student - Based in the Philippines</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="circle"></div>
+        <img src="profile1.jpg" alt="Justin Jacob Acedo" class="portrait">
+        <div class="asterisk">&#10035;</div>
+        <div class="badge">
+          <span class="badge-sub">Currently</span>
+          Learning &amp; Building
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ==================== DIVIDER ==================== -->
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="about wrap" id="about">
+    <div class="label">
+      <span class="label-mark">&#10035;</span>
+      <span>About Me</span>
+    </div>
+
+    <div class="about-grid">
+      <h2 class="about-heading">
+        Who
+        <em>I Am</em>
+      </h2>
+
+      <div class="about-body">
+        <p>
+          Hello! I am <b>Justin Jacob Acedo</b>, an 18-year-old passionate
+          IT student currently honing my skills in software development and
+          web technologies. I love solving problems and turning ideas into
+          functional, user-friendly applications.
+        </p>
+        <p>
+          When I'm not coding or studying, you can usually find me playing
+          musical instruments, going for a ride on my motorcycle, or
+          relaxing with some online games. My goal is to become a
+          <b>Full-Stack Developer</b> where I can contribute to innovative
+          projects and continuously learn in a fast-paced tech environment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DIVIDER ==================== -->
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section class="skills wrap" id="skills">
+    <div class="label">
+      <span class="label-mark">&#10035;</span>
+      <span>Skills</span>
+    </div>
+
+    <h2 class="skills-heading">
+      What I <em>Know</em>
+    </h2>
+
+    <div class="skills-grid">
+      <div class="skill-col">
+        <h3>Technical</h3>
+        <ul>
+          <li>HTML5 &amp; CSS3</li>
+          <li>JavaScript</li>
+          <li>C Programming</li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <h3>Tools &amp; Platforms</h3>
+        <ul>
+          <li>Git &amp; GitHub</li>
+          <li>VS Code</li>
+        </ul>
+      </div>
+
+      <div class="skill-col">
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Problem Solving</li>
+          <li>Adaptability</li>
+          <li>Time Management</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DIVIDER ==================== -->
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="projects wrap" id="projects">
+    <div class="label">
+      <span class="label-mark">&#10035;</span>
+      <span>Projects</span>
+    </div>
+
+    <h2 class="projects-heading">
+      Things I've <em>Built</em>
+    </h2>
+
+    <p class="projects-intro">
+      A school activity I recently completed - a small step in my
+      journey as a developer.
+    </p>
+
+    <article class="project-feature">
+
+      <div class="project-meta">
+        <div class="project-num">01 / Activity</div>
+
+        <div class="meta-chip">
+          <div class="meta-chip-label">Programming Language</div>
+          <div class="meta-chip-value">C</div>
+        </div>
+
+        <div class="meta-chip">
+          <div class="meta-chip-label">Type of Work</div>
+          <div class="meta-chip-value">School Activity</div>
+        </div>
+      </div>
+
+      <div class="project-content">
+        <h3 class="project-title">Student Profile</h3>
+
+        <p class="project-desc">
+          A C program that displays a formatted student profile using
+          <b>printf()</b>. It outputs a clean, structured layout with
+          borders and dividers - an early exercise in console formatting
+          and text alignment.
+        </p>
+
+        <p class="project-desc">
+          One of my first hands-on activities in C, a small step, but it
+          helped me understand how code controls what appears on screen,
+          one line at a time.
+        </p>
+
+        <a href="https://github.com/acedojustinjacob315-art/IT112-ACEDO-JUSTIN/blob/main/LAB%20EXE.C" class="project-link" target="_blank" rel="noopener">
+          View &#8594;
+        </a>
+      </div>
+
+    </article>
+
+    <p class="project-note">
+      More projects coming as I continue learning and building.
+    </p>
+
+  </section>
+
+  <!-- ==================== DIVIDER ==================== -->
+  <div class="divider">
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="contact wrap" id="contact">
+    <div class="label">
+      <span class="label-mark">&#10035;</span>
+      <span>Contact</span>
+    </div>
+
+    <h2 class="contact-heading">
+      Let's <em>Talk</em>
+    </h2>
+
+    <p class="contact-intro">
+      I am currently open to collaborative opportunities and expanding my
+      network. Feel free to send me a message.
+    </p>
+
+    <div class="form-shell">
+
+      <span class="form-corner-logo">
+        <span class="logo-mark">
+          <span class="logo-mark-text">{ }</span>
+        </span>
+      </span>
+
+      <aside class="form-side">
+        <div class="form-side-label">Send a Message</div>
+
+        <p class="form-side-text">
+          Have a question, an idea, or just want to say hi? I read every
+          message and reply as soon as I can.
+        </p>
+
+        <ul class="form-side-list">
+          <li>Open to collabs</li>
+          <li>Student-friendly</li>
+          <li>Replies within 48h</li>
+        </ul>
+      </aside>
+
+      <form class="form" action="mailto:acedojustinjacob315@gmail.com" method="post" enctype="text/plain">
+
+        <div class="field">
+          <div class="field-head">
+            <label for="name">Name</label>
+            <span class="field-num">01</span>
+          </div>
+          <input type="text" id="name" name="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="email">Email</label>
+            <span class="field-num">02</span>
+          </div>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="subject">Subject</label>
+            <span class="field-num">03</span>
+          </div>
+          <input type="text" id="subject" name="subject" placeholder="What's this about?">
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="message">Message</label>
+            <span class="field-num">04</span>
+          </div>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Send Message</button>
+          <span class="form-note">Email: acedojustinjacob315@gmail.com</span>
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="#home" class="logo logo--inverse">
+          <span class="logo-mark">
+            <span class="logo-mark-text">{ }</span>
+          </span>
+          <span class="footer-name">Justin <em>Portfolio</em></span>
+        </a>
+        <div class="footer-tag">
+          Building clean, functional things for the future.
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Justin Jacob Acedo. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="https://github.com/acedojustinjacob315-art" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.facebook.com/profile.php?id=61581261164232" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
